@@ -1,2 +1,18 @@
-Date,Study,Sleep,Phone,Chill,Exercise,Projects,Total
-2 AUG 2025,3.0,6.0,1.0,1.0,0.0,3.0,14.0
+Timestamp, Activity, duration (mins)
+import csv
+from datetime import datetime
+
+activity = input("What did you do? (Study, Scroll, etc.): ")
+duration = input("How many minutes?: ")
+
+timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+with open("life_log.csv", mode="a", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow([timestamp, activity, duration])
+    print(f"[{timestamp}] Logged: {activity} - {duration} mins ✅")
+timestamp,activity,duration (mins)
+2025-08-03 09:00:00,Study,120
+2025-08-03 11:15:00,Scroll,150
+2025-08-03 13:30:00,Projects,90
+2025-08-03 16:00:00,Sleep,180
